@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://components.connect.trimble.com; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SBD Upload Monitor – Demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>SBD <span>Upload Monitor</span></h1>
+  <div class="sub">Trimble Connect · Job file uploads</div>
+</header>
+<div class="demo"><b>Demonstration only.</b> All figures below are generated sample data, not live Trimble Connect data.</div>
+
+<div class="grid kpis">
+  <div class="card kpi"><b id="kToday">0</b><span>Job files uploaded today</span></div>
+  <div class="card kpi"><b id="kWeek">0</b><span>Uploaded in the last 7 days</span></div>
+  <div class="card kpi"><b id="kMonth">0</b><span>Uploaded in the last 30 days</span></div>
+  <div class="card kpi"><b id="kActive">0</b><span>Active surveyors (30 days)</span></div>
+</div>
+
+<div class="card">
+  <h2>Job files uploaded</h2>
+  <div class="bar">
+    <div class="seg" id="seg"><button data-p="day" class="on">Day</button><button data-p="week">Week</button><button data-p="month">Month</button></div>
+    <select id="sel" aria-label="Surveyor"></select>
+    <span class="sub" id="cap"></span>
+  </div>
+  <div class="chart" id="chart"></div>
+  <div class="labels" id="labels"></div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>Jobs uploaded by surveyor</h2>
+    <div class="tw"><table><thead><tr><th>Surveyor</th><th>Today</th><th>7 days</th><th>30 days</th></tr></thead><tbody id="tbody"></tbody></table></div>
+  </div>
+  <div class="card">
+    <h2>Recent uploads</h2>
+    <ul id="recent"></ul>
+    <div class="mail"><b>Daily email · 4:45 PM UAE time</b><br><span id="mail"></span></div>
+  </div>
+</div>
+<p class="foot">Weekends (Saturday and Sunday) are treated as non-working days. Week view starts on Monday.</p>
+</div>
+
+<script src="https://components.connect.trimble.com/trimble-connect-workspace-api/index.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
